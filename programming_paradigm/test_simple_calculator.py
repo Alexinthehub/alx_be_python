@@ -18,16 +18,17 @@ class TestSimpleCalculator(unittest.TestCase):
         self.assertEqual(self.calc.subtract(0, 3), -3)
         self.assertEqual(self.calc.subtract(-5, -5), 0)
 
-    def test_multiply(self):
-        self.assertEqual(self.calc.multiply(4, 5), 20)
-        self.assertEqual(self.calc.multiply(-1, 10), -10)
-        self.assertEqual(self.calc.multiply(0, 100), 0)
+def test_multiply(self):
+    self.assertEqual(self.calc.multiply(3, 4), 12)       # normal
+    self.assertEqual(self.calc.multiply(0, 5), 0)        # zero
+    self.assertEqual(self.calc.multiply(-2, 3), -6)      # negative
 
-    def test_divide(self):
-        self.assertEqual(self.calc.divide(10, 2), 5)
-        self.assertEqual(self.calc.divide(5, -1), -5)
-        self.assertIsNone(self.calc.divide(10, 0))  # Division by zero
-        self.assertAlmostEqual(self.calc.divide(7, 2), 3.5)
+
+def test_divide(self):
+    self.assertEqual(self.calc.divide(10, 2), 5)         # normal
+    self.assertEqual(self.calc.divide(7, 2), 3.5)        # float result
+    self.assertEqual(self.calc.divide(-6, 3), -2)        # negative
+    self.assertIsNone(self.calc.divide(5, 0))            # division by zero
 
 if __name__ == '__main__':
     unittest.main()
